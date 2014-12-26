@@ -12,8 +12,8 @@
 # use the gapbuild target. You'll need to set LOCALIZATION to the proper
 # localized source to use. Output will be found in safe-birth-$(LOCALIZATION)
 
-# Build number.
-BUILD=0018
+# Build number. Used for non phonegap build builds (those take values from config.xml)
+BUILD=0020
 
 # Main source directory - retarget for localized builds
 # Available localizations: en es

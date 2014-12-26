@@ -7,8 +7,8 @@
     <widget xmlns = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "org.hesperian.Safe-Pregnancy-and-Birth-es"
-        versionCode = "4"
-        version   = "1.0.6">
+        versionCode = "5"
+        version   = "1.0.7">
 
     <!-- Essential Properties -->
     <name>Parto seguro</name>
