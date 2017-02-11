@@ -79,16 +79,7 @@
     <icon src="icons/ios/icon-152.png" platform="ios" width="152" height="152" />
 
     <!-- iOS splash screen a.k.a. launch image -->
-    <splash src="splash/ios/Default.png" platform="ios" width="320" height="480" />
-    <splash src="splash/ios/Default_at_2x.png" platform="ios" width="640" height="960" />
-    <splash src="splash/ios/Default_iphone5.png" platform="ios" width="640" height="1136" />
-    <splash src="splash/ios/Default-Landscape.png" platform="ios" width="1024" height="768" />
-    <splash src="splash/ios/Default-Portrait.png" platform="ios" width="768" height="1024" />
-    <!-- retina iPad support -->
-    <splash src="splash/ios/Default-Landscape_at_2x.png" platform="ios" width="2048" height="1496" />
-    <splash src="splash/ios/Default-Portrait_at_2x.png" platform="ios" width="1536" height="2008" />
-
-
+    
     <!-- iPhone and iPod touch -->
     <splash src="splash/ios/Default.png" platform="ios" width="320" height="480" />
     <splash src="splash/ios/Default@2x.png" platform="ios" width="640" height="960" />
