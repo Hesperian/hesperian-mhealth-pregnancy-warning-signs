@@ -38,7 +38,9 @@
     <preference name="load-url-timeout" value="40000" />
 
     <plugin name="cordova-plugin-statusbar" source="npm" spec="2.2.1"/>
-
+    <preference name="StatusBarOverlaysWebView" value="false" />
+    <preference name="StatusBarBackgroundColor" value="#000000" />
+    <preference name="StatusBarStyle" value="lightcontent" />
 
     <!-- iOS Properties -->
 
@@ -66,9 +68,6 @@
     permission on your app, which PhoneGap requires. -->
     <preference name="permissions" value="none"/>
 
-    <preference name="StatusBarOverlaysWebView" value="false" />
-    <preference name="StatusBarBackgroundColor" value="#000000" />
-    <preference name="StatusBarStyle" value="lightcontent" />
 
     <!-- iOS App icons -->
     <icon src="icons/ios/icon.png" platform="ios" width="57" height="57" />
