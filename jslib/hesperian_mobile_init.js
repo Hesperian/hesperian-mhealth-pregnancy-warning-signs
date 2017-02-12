@@ -138,19 +138,19 @@ $("div:jqmData(role='page')").live("pageshow",function(event) {
 	}
 });
 
-/* *** Commenting out swiping code
 //binds swipe events to the specified elements and maps them to clicks on the previous and next links based on them having the appropriate class
 function swipeToClick(el) {
 	$(el).bind("swiperight swipeleft", function(event) {
+    var href;
 		event.preventDefault();
 		if (event.type == "swipeleft") {
-			var href = $("a.seq-nav-button-right:first",this).attr("href");
-			if (href != "javascript:;")
+			href = $("a.seq-nav-button-right:first",this).attr("href");
+			if (href !== "javascript:;")
 				$.mobile.changePage(href,"none");
 		}
 		else if (event.type == "swiperight") {
-			var href = $("a.seq-nav-button-left:first",this).attr("href");
-			if (href != "javascript:;")
+			href = $("a.seq-nav-button-left:first",this).attr("href");
+			if (href !== "javascript:;")
 				$.mobile.changePage(href,"none");
 		}
 	});
@@ -163,6 +163,6 @@ $("div:jqmData(role='page')").live("pagecreate",function(event) {
 	if (page.attr("swipe") == "true")
 		swipeToClick(page);
 });
-** end swiping code */
+
 
 // jquery mobile configuration
