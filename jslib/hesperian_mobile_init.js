@@ -36,7 +36,25 @@ var HM = {
 
   // Cache of our current section (for the "up" button). KLOOGE: this will only work in the single page app -
   // on the load of a new html page, this will be reset, losing history.
-  currentSection: null
+  currentSection: null,
+
+  // test to see if we can call window.ga methods. Will do a JIT initialization.
+  // both mobileinit or deviceready are too soon to init, evidently.
+  gaAvailable: (function() {
+    var gaInited = false;
+    return function() {
+      if(!window.ga) {
+        return false;
+      }
+
+      if(!gaInited) {
+        window.ga.startTrackerWithId('UA-91729174-2', 30);
+        gaInited = true;
+      }
+
+      return window.ga;
+    };
+  })()
 };
 
 $(document).bind("mobileinit", function(){
@@ -100,12 +118,7 @@ document.addEventListener("deviceready", function() {
         $("body").addClass("hm-phonegap-" + platform);
         HM.platform = platform;
       }
-      if(!window.ga) {
-        alert("where is window.ga?"); // Testing
-      }
-      if( window.ga) {
-        window.ga.startTrackerWithId('UA-91729174-2', 30);
-      }
+
 
 }, false);
 
@@ -117,9 +130,10 @@ $("div:jqmData(role='page')").live("pagebeforeshow",function(event, ui) {
 });
 
 $("div:jqmData(role='page')").live("pageshow",function(event) {
+  var thisPage = $(this).attr("id");
 
-  if(window.ga) {
-    window.ga.trackView($(this).attr("id"));
+  if(HM.gaAvailable()) {
+    window.ga.trackView(thisPage);
   }
 
 	if ($(this).attr("swipe") == "true") {
