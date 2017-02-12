@@ -31,11 +31,11 @@ TMP=$(abspath ./tmp)
 
 JSMIN ?= .min
 # JQuery (minus .js / .css extension)
-JQUERY ?= jquery-1.6.4$(JSMIN)
+JQUERY ?= jquery-1.11.3$(JSMIN)
 # JQuery mobile version (minus .js / .css extension)
-JQM ?= jquery.mobile-1.0$(JSMIN)
+JQM ?= jquery.mobile-1.4.5$(JSMIN)
 # Directory in jslib containing JQM files
-JQMDIR ?= jquery.mobile-1.0
+JQMDIR ?= jquery.mobile-1.4.5
 # phonegap version (minus .js / .css extension)
 PHONEGAP ?= phonegap-1.2.0
 
@@ -60,7 +60,7 @@ COMBINEHTML ?= YES
 
 .PHONY: all html phonegap
 
-all: html 
+all: html
 
 htmldest:
 	@rm -fr $(TMP)
@@ -94,7 +94,7 @@ manifest:
 	# Create a manifest
 	./bin/create_manifest.sh  $(DESTDIR) >  $(DESTDIR)/cache.manifest
 	echo "AddType text/cache-manifest .manifest" >  $(DESTDIR)/.htaccess
-	
+
 html: htmldest manifest
 
 # Main target for phonegap-build.
@@ -115,7 +115,7 @@ gapcommit:
 	rm -R ../$(GAPDEST)/*
 	cp -R $(GAPDEST)/* ../$(GAPDEST)
 	(cd ../$(GAPDEST); git add -A; git commit -m "updated build")
-  
+
 clean:
 	@- rm -R html
 	@- rm -R safe-birth-??
@@ -129,4 +129,3 @@ release:
 
 site-deploy:
 	(cd site; make deploy)
-

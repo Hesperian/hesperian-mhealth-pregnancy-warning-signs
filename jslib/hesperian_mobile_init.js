@@ -48,7 +48,7 @@ var HM = {
       }
 
       if(!gaInited) {
-        window.ga.startTrackerWithId('UA-91729174-2', 30);
+        window.ga.startTrackerWithId('UA-91729174-2', 3);
         gaInited = true;
       }
 
@@ -61,7 +61,7 @@ $(document).bind("mobileinit", function(){
 	$.mobile.defaultPageTransition = "none";
 });
 
-$("div:jqmData(role='page')").live('pagebeforecreate',function(event){
+$(document).on('pagebeforecreate',"div:jqmData(role='page')",function(event){
 	if ($(this).attr("swipe") == "true") {
 		var html = "";
 		$("div.sequence-bar",this).each(function(index) {
@@ -122,18 +122,22 @@ document.addEventListener("deviceready", function() {
 
 }, false);
 
-$("div:jqmData(role='page')").live("pagebeforeshow",function(event, ui) {
+$(document).on("pagebeforeshow","div:jqmData(role='page')", function(event, ui) {
 	var page = $(this);
   HM.currentSection =  HM.getContentSectionForPage(page, HM.currentSection);
   $('.upbutton', page).hide();
   $('[upid='+HM.currentSection+']', page).show();
 });
 
-$("div:jqmData(role='page')").live("pageshow",function(event) {
+$(document).on("pageshow","div:jqmData(role='page')",function(event) {
   var thisPage = $(this).attr("id");
 
-  if(HM.gaAvailable()) {
-    window.ga.trackView(thisPage);
+  try {
+    if(HM.gaAvailable()) {
+      window.ga.trackView(thisPage);
+    }
+  } catch(err) {
+    alert(JSON.stringify(err, null,2));
   }
 
 	if ($(this).attr("swipe") == "true") {
@@ -171,7 +175,7 @@ function swipeToClick(el) {
 }
 
 //swiping would need to be selectively added to pages where we wanted it
-$("div:jqmData(role='page')").live("pagecreate",function(event) {
+$(document).on("pagecreate","div:jqmData(role='page')",function(event) {
 	var page = $(this);
 	//pass page to bind swipe after filtering it for pages containing a div with class sequence bar, this identifies that swiping is to be enabled.
 	if (page.attr("swipe") == "true")

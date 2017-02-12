@@ -33,11 +33,11 @@ function showKeepReadingText(id) {
 	}
 }
 
-$("div:jqmData(role='page')").live("pageshow",function(event) {
+$(document).on("pageshow","div:jqmData(role='page')",function(event) {
 	showKeepReadingText("#hm-keepreading");
 });
 
-$("div:jqmData(role='page')").live("pagehide",function(event) {
+$(document).on("pagehide","div:jqmData(role='page')",function(event) {
 	$("#hm-keepreading").hide();
 });
 
