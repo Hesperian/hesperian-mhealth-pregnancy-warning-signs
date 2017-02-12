@@ -37,6 +37,8 @@
       load-url-timeout of 20000 won't allow the load of index.html -->
     <preference name="load-url-timeout" value="40000" />
 
+    <plugin name="cordova-plugin-google-analytics" spec="1.7.4"/>
+
     <plugin name="cordova-plugin-statusbar" source="npm" spec="2.2.1"/>
     <preference name="StatusBarOverlaysWebView" value="false" />
     <preference name="StatusBarBackgroundColor" value="#000000" />

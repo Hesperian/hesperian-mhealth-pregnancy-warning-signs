@@ -4,7 +4,7 @@
 
 
 // Hesperian Mobile globals
-var HM = { 
+var HM = {
   platform: "", // Android, iPhone
   // Return the content section for the given jQuery page object,
   // for a transition from previousSectionID
@@ -14,7 +14,7 @@ var HM = {
       if( (sectionList[i] === pageID) || (sectionList[i] === '*')) // Glob matches all.
         return true;
     }
-    
+
     return false;
   },
   getContentSectionForPage: function(page, previousSectionID)
@@ -33,7 +33,7 @@ var HM = {
     //console.log("getContentSectionForPage("+pageID + ", " + previousSectionID + ") returns: " + section);
     return section;
   },
-  
+
   // Cache of our current section (for the "up" button). KLOOGE: this will only work in the single page app -
   // on the load of a new html page, this will be reset, losing history.
   currentSection: null
@@ -53,7 +53,7 @@ $("div:jqmData(role='page')").live('pagebeforecreate',function(event){
 				if (seq_length == 0) {
 					$("div.sequence-dots",this).css("margin-top","-=10px");
 					return;
-				} 
+				}
 				var pos = 0;
 				while (pos < seq_length) {
 					if (pos + 1 == seq_position) {
@@ -75,7 +75,7 @@ $("div:jqmData(role='page')").live('pagebeforecreate',function(event){
   $("a.external-site", this).each(function() {
     var a = $(this),
       href = a.attr('href');
-      
+
     if( a.attr('target') === '_blank') {
       a.bind('tap', function() {
         window.open(href, "_system");
@@ -100,6 +100,13 @@ document.addEventListener("deviceready", function() {
         $("body").addClass("hm-phonegap-" + platform);
         HM.platform = platform;
       }
+      if(!window.ga) {
+        alert("where is window.ga?"); // Testing
+      }
+      if( window.ga) {
+        window.ga.startTrackerWithId('UA-91729174-2', 30);
+      }
+
 }, false);
 
 $("div:jqmData(role='page')").live("pagebeforeshow",function(event, ui) {
@@ -110,6 +117,11 @@ $("div:jqmData(role='page')").live("pagebeforeshow",function(event, ui) {
 });
 
 $("div:jqmData(role='page')").live("pageshow",function(event) {
+
+  if(window.ga) {
+    window.ga.trackView($(this).attr("id"));
+  }
+
 	if ($(this).attr("swipe") == "true") {
 		var el = $("div.sequence-bar-bottom",this);
 	/*	if ( $(window).scrollTop() + $(window).height() > el.offset().top ) {
@@ -140,7 +152,7 @@ function swipeToClick(el) {
 			var href = $("a.seq-nav-button-left:first",this).attr("href");
 			if (href != "javascript:;")
 				$.mobile.changePage(href,"none");
-		}		
+		}
 	});
 }
 
