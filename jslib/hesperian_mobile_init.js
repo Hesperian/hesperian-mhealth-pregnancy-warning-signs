@@ -161,12 +161,12 @@ function swipeToClick(el) {
 		event.preventDefault();
 		if (event.type == "swipeleft") {
 			href = $("a.seq-nav-button-right:first",this).attr("href");
-			if (href !== "javascript:;")
+			if (href && href !== "javascript:;")
 				$.mobile.changePage(href,"none");
 		}
 		else if (event.type == "swiperight") {
 			href = $("a.seq-nav-button-left:first",this).attr("href");
-			if (href !== "javascript:;")
+			if (href && href !== "javascript:;")
 				$.mobile.changePage(href,"none");
 		}
 	});
