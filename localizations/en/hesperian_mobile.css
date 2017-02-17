@@ -11,7 +11,7 @@ white-space: normal;
 
 /*
 Workaround for iPhone / WebKit bug where headers and footers can disappear after page animation.
- http://forum.jquery.com/topic/question-about-header-footer-in-jquery-mobile-alpha3 
+ http://forum.jquery.com/topic/question-about-header-footer-in-jquery-mobile-alpha3
 */
 .ui-page { z-index: 1}
 .ui-header { z-index: 10 }
@@ -25,7 +25,7 @@ Workaround for iPhone / WebKit bug where headers and footers can disappear after
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FFFFFF), to(#DDE6F2), color-stop(.5,#EDF1F8));
 	background: -moz-linear-gradient(top, #FFFFFF 0%, #EDF1F8 50%, #DDE6F2 100%);*/
 }
- 
+
 .sequence-bar h2.sequence-title {
 	font-size: 125%;
 	padding: 0;
@@ -39,7 +39,7 @@ Workaround for iPhone / WebKit bug where headers and footers can disappear after
 .sequence-dots {
 	margin-top: 11px;
 	text-align: center;
-	
+
 }
 
 .sequence-bar-bottom  .sequence-dots{
@@ -94,7 +94,7 @@ a.seq-nav-button.ui-btn-icon-notext .ui-btn-inner {
 }
 */
 
-.seq-nav-button-left.ui-btn-hover-b .ui-icon-hm-arrow-l, 
+.seq-nav-button-left.ui-btn-hover-b .ui-icon-hm-arrow-l,
 .seq-nav-button-left.ui-btn-down-b .ui-icon-hm-arrow-l {
 	background:		url("images/left-arrow-sprite.png") no-repeat scroll center;
 	border: none;
@@ -113,7 +113,7 @@ a.seq-nav-button.ui-btn-icon-notext .ui-btn-inner {
 	height: 32px;
 }
 
-.seq-nav-button-right.ui-btn-hover-b .ui-icon-hm-arrow-r, 
+.seq-nav-button-right.ui-btn-hover-b .ui-icon-hm-arrow-r,
 .seq-nav-button-right.ui-btn-down-b .ui-icon-hm-arrow-r {
 	background:		url("images/right-arrow-sprite.png") no-repeat scroll center;
 	border: none;
@@ -316,7 +316,7 @@ ul.hm-menu.hm-top-menu {
 .ui-header .hm-home .ui-btn-corner-all,.ui-header .hm-home.ui-btn-corner-all {
 	border-radius: 0.5em;
 	font-size: 17px;
-	
+
 }
 .ui-header .ui-btn-corner-all {
 	border-radius: 0.5em;
@@ -750,7 +750,7 @@ body.hm-phonegap-Android a.hm-back-button.ui-btn-corner-all {
 	color: 					#333333 /*{b-body-color}*/;
 	text-shadow: 0 /*{b-body-shadow-x}*/ 1px /*{b-body-shadow-y}*/ 0 /*{b-body-shadow-radius}*/ #fff /*{b-body-shadow-color}*/;
 	font-weight: normal;
-	
+
 }
 .ui-body-b,
 .ui-body-b input,
@@ -1119,4 +1119,10 @@ body.hm-phonegap-Android a.hm-back-button.ui-btn-corner-all {
 }
 .ui-btn-active a.ui-link-inherit {
 	color: 					#000 /*{global-active-color}*/;
+}
+
+/* Some color for active links on the about page */
+.ui-body-b a.ui-link:active {
+	color: purple;
+	font-weight: bold;
 }
